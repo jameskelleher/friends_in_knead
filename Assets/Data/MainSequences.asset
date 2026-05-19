@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc0b75f107f0f146822c57b71a9e503, type: 3}
+  m_Name: MainSequences
+  m_EditorClassIdentifier: Assembly-CSharp::SequenceLibrary
+  sequences:
+  - name: Cakeroll
+    happySprite: {fileID: 21300000, guid: 52b01bf9e1d14024c8569f4e2768f26a, type: 3}
+    sadSprite: {fileID: 21300000, guid: cb568722d00864c49a7d6ed5e9a7a03a, type: 3}
+    silhouette: {fileID: 21300000, guid: 6e6517687a90beb4fa9208bec700448a, type: 3}
+    ignore: 0
+    steps:
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+  - name: Cookie
+    happySprite: {fileID: 21300000, guid: 2ee93bdaf4243024fb8026ca5ac9b6b4, type: 3}
+    sadSprite: {fileID: 21300000, guid: cd71366126659b94cbee242e13e074f9, type: 3}
+    silhouette: {fileID: 21300000, guid: 0d94ac29a151cc84cab1c1e1b2e8353f, type: 3}
+    ignore: 0
+    steps:
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+    - strength: 0
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+  - name: Crepe
+    happySprite: {fileID: 21300000, guid: b7e0d677114b6ec48a1dd4e706f68d9c, type: 3}
+    sadSprite: {fileID: 21300000, guid: 6e05a775f996de54f94ba09779b41345, type: 3}
+    silhouette: {fileID: 21300000, guid: ebf94d42b202d664e952565eb4c1d54f, type: 3}
+    ignore: 0
+    steps:
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 2
+      sound: {fileID: 0}
+  - name: Cupcake
+    happySprite: {fileID: 21300000, guid: 3ba7d9c38a1e932449018e81f52bd7f9, type: 3}
+    sadSprite: {fileID: 21300000, guid: d9737f53ab74d044d828bb7a56df479c, type: 3}
+    silhouette: {fileID: 21300000, guid: bd5974b38c02fda4d9fe21a63dfaf751, type: 3}
+    ignore: 0
+    steps:
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+  - name: Dount
+    happySprite: {fileID: 21300000, guid: 463f3fa40967fde47b01448fee70826e, type: 3}
+    sadSprite: {fileID: 21300000, guid: 8efa407f6b43ee442a78e4edf41a6fcd, type: 3}
+    silhouette: {fileID: 21300000, guid: 810ce271d58d7d341b0f9f11a9426c31, type: 3}
+    ignore: 0
+    steps:
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+  - name: Macaron
+    happySprite: {fileID: 21300000, guid: 5281b715624dea147a1a5b421b5edbd0, type: 3}
+    sadSprite: {fileID: 21300000, guid: bfd8a6f54fb4766498e6a6febfb77586, type: 3}
+    silhouette: {fileID: 21300000, guid: bf418b887ac41bb4585086d6839e1cd9, type: 3}
+    ignore: 0
+    steps:
+    - strength: 0
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 0
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 0
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 0
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+  - name: Madeleine
+    happySprite: {fileID: 21300000, guid: c3899707036b30345af1d0b72b8eda23, type: 3}
+    sadSprite: {fileID: 21300000, guid: 1cb0023e1610b684bbacf31c74671449, type: 3}
+    silhouette: {fileID: 21300000, guid: ee7520e256efda14ab704ae53643a837, type: 3}
+    ignore: 0
+    steps:
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 2
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+  - name: Pudding
+    happySprite: {fileID: 21300000, guid: 20cb4989043624d4aaa42091220fb28a, type: 3}
+    sadSprite: {fileID: 21300000, guid: d171073c9b0c91a49ab4aa952c6045d8, type: 3}
+    silhouette: {fileID: 21300000, guid: 655fe7824e7d94d4cac8032af4c39fd7, type: 3}
+    ignore: 0
+    steps:
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 2
+      sound: {fileID: 0}
+    - strength: 0
+      position: 1
+      sound: {fileID: 0}
+  - name: Quaso
+    happySprite: {fileID: 21300000, guid: f2ed3e90ea2de9c41ac1f5077b71cb65, type: 3}
+    sadSprite: {fileID: 21300000, guid: 39684b48e891af54090c3a6c2c4d3ad4, type: 3}
+    silhouette: {fileID: 21300000, guid: b03daa690c5fc81498b44522415d1350, type: 3}
+    ignore: 0
+    steps:
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+  - name: Waffle
+    happySprite: {fileID: 21300000, guid: a60dd4ffb10c03d4d9bd95768006f7c3, type: 3}
+    sadSprite: {fileID: 21300000, guid: 6d82d0ffbdb809343906f586224aba7b, type: 3}
+    silhouette: {fileID: 21300000, guid: cfee8da6b27a65545ae6262e75ec8d5d, type: 3}
+    ignore: 0
+    steps:
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+    - strength: 1
+      position: 0
+      sound: {fileID: 0}
+    - strength: 2
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
+    - strength: 1
+      position: 1
+      sound: {fileID: 0}
+    - strength: 2
+      position: 0
+      sound: {fileID: 0}
