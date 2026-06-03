@@ -16,6 +16,9 @@ public class InputConfig : ScriptableObject
 
     void OnEnable()
     {
+        if (Application.isMobilePlatform)
+            currentInput = InputType.Touch;
+
         leftInput.Enable();
         rightInput.Enable();
 
@@ -29,6 +32,9 @@ public class InputConfig : ScriptableObject
 
     public InputPair ReadInput()
     {
+        if (currentInput == InputType.Touch)
+            return ReadFromTouchscreen();
+
         InputTypeConfig config = _inputDictionary[currentInput];
 
         InputPair raw = ReadRawInput(config);
@@ -42,20 +48,30 @@ public class InputConfig : ScriptableObject
 
     InputPair ReadRawInput(InputTypeConfig config)
     {
-        float inputLeft, inputRight;
-
-        if (config.swapInputPositions)
-        {
-            inputRight = leftInput.ReadValue<float>();
-            inputLeft = rightInput.ReadValue<float>();
-        }
-        else
-        {
-            inputLeft = leftInput.ReadValue<float>();
-            inputRight = rightInput.ReadValue<float>();
-        }
+        float inputLeft = config.swapInputPositions ? rightInput.ReadValue<float>() : leftInput.ReadValue<float>();
+        float inputRight = config.swapInputPositions ? leftInput.ReadValue<float>() : rightInput.ReadValue<float>();
 
         return new InputPair(inputLeft, inputRight);
+    }
+
+    InputPair ReadFromTouchscreen()
+    {
+        Touchscreen touchscreen = Touchscreen.current;
+        if (touchscreen == null) return new InputPair(0f, 0f);
+
+        float leftY = 0f, rightY = 0f;
+
+        foreach (var touch in touchscreen.touches)
+        {
+            if (!touch.isInProgress) continue;
+            Vector2 pos = touch.position.ReadValue();
+            if (pos.x < Screen.width * 0.5f)
+                leftY = pos.y / Screen.height;
+            else
+                rightY = pos.y / Screen.height;
+        }
+
+        return new InputPair(leftY, rightY);
     }
 
     InputPair RemapInput(InputTypeConfig config, InputPair input)
@@ -94,7 +110,7 @@ public class InputMap
 
 }
 
-public enum InputType { Prototype, Gamepad, Cabinet }
+public enum InputType { Prototype, Gamepad, Cabinet, Touch }
 
 [Serializable]
 public struct InputTypeConfig

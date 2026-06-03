@@ -20,10 +20,17 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        InputPair normalizedInput = inputConfig.ReadInput();
+        InputPair input = inputConfig.ReadInput();
 
-        left.UpdatePos(normalizedInput.left, yRange, partitions);
-        right.UpdatePos(normalizedInput.right, yRange, partitions);
+        // map touch input from "absolute" space to "normalized" space
+        if (inputConfig.currentInput == InputType.Touch)
+            input = new InputPair(
+                Mathf.Clamp01(Mathf.InverseLerp(yRange.low, yRange.high, input.left)),
+                Mathf.Clamp01(Mathf.InverseLerp(yRange.low, yRange.high, input.right))
+            );
+
+        left.UpdatePos(input.left, yRange, partitions);
+        right.UpdatePos(input.right, yRange, partitions);
 
         DebugBoxRanges();
     }

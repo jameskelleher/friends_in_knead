@@ -23,12 +23,6 @@ public class AudioManager : MonoBehaviour
         currentLevel = difficultyLevels[_difficultyIx];
     }
 
-    void Update()
-    {
-        foreach (var src in _sources)
-            src.volume = _mute ? 0 : 1;
-    }
-
     void OnValidate()
     {
         if (_sources == null) return;

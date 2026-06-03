@@ -96,39 +96,42 @@ public class GameRunner : MonoBehaviour
     {
         if (_gameOver)
         {
+            // go to game over screen
             StartCoroutine(ScheduleGoToEnd(_nextEventDspTime));
             running = false;
             return;
         }
 
+        // BAR 1 ACTIONS (count-in section)
         roundText.text = (_roundNumber + 1).ToString();
         bPMText.text = gameAudio.currentLevel.bpm.ToString();
         double secondsPerBeat = gameAudio.SecondsPerBeat();
 
-        gameAudio.LoadIntro(_nextEventDspTime);
+        gameAudio.LoadIntro(_nextEventDspTime);      // load the count-in music
 
         StartCoroutine(SetupNextSequence(_nextEventDspTime));
         StartCoroutine(DoCountdown(_nextEventDspTime, secondsPerBeat));
         StartCoroutine(ToggleHeartbeats(_nextEventDspTime, secondsPerBeat));
 
+        // BAR 2-3 ACTIONS (player input section)
         _nextEventDspTime += secondsPerBeat * BEATS_PER_BAR;
-        gameAudio.LoadBeat(_nextEventDspTime);
+        gameAudio.LoadBeat(_nextEventDspTime);       // load the first bar of gameplay music
 
-        for (int i = 0; i < BEATS_PER_BAR * 2; i++)
+        for (int i = 0; i < BEATS_PER_BAR * 2; i++)  // schedule each beat's input window
         {
             double beatDspTime = _nextEventDspTime + secondsPerBeat * i;
             StartCoroutine(ScheduleInputWindow(beatDspTime, secondsPerBeat * windowDurationPerBeat, i));
         }
 
         _nextEventDspTime += secondsPerBeat * BEATS_PER_BAR;
-        gameAudio.LoadBeat(_nextEventDspTime);
+        gameAudio.LoadBeat(_nextEventDspTime);       // load the second bar of gameplay music
 
+        // BAR 4 ACTIONS (results section)
         _nextEventDspTime += secondsPerBeat * BEATS_PER_BAR;
-        gameAudio.LoadIntro(_nextEventDspTime);
+        gameAudio.LoadIntro(_nextEventDspTime);      // load the results screen music
         StartCoroutine(EvaluateScore(_nextEventDspTime, secondsPerBeat));
 
         _nextEventDspTime += secondsPerBeat * BEATS_PER_BAR;
-
     }
 
     IEnumerator DoCountdown(double eventDspTime, double secondsPerBeat)
@@ -231,6 +234,14 @@ public class GameRunner : MonoBehaviour
 
     IEnumerator WaitUntilDspTime(double eventDspTime)
     {
-        yield return new WaitUntil(() => AudioSettings.dspTime >= eventDspTime);
+        // yield return new WaitUntil(() => AudioSettings.dspTime >= eventDspTime);
+        double sleepThreshold = 0.02; // stop sleeping 20ms early
+        double waitTime = eventDspTime - AudioSettings.dspTime - sleepThreshold;
+        if (waitTime > 0)
+            yield return new WaitForSecondsRealtime((float)waitTime);
+
+        // spin the remaining ~20ms
+        while (AudioSettings.dspTime < eventDspTime)
+            yield return null;
     }
 }

@@ -62,19 +62,19 @@ MonoBehaviour:
       m_Action: Right Input
       m_Flags: 0
     m_Flags: 0
-  currentInput: 2
+  currentInput: 0
   inputConfigs:
   - inputType: 0
     inputMap1:
-      min: -0.985
-      max: -0.934
-      EMAAmt: 0
-      accumulator: 0
+      min: -0.93
+      max: -0.8
+      EMAAmt: 0.4
+      accumulator: -0.9727518
     inputMap2:
-      min: -0.85
-      max: -0.459
-      EMAAmt: 0
-      accumulator: 0
+      min: -0.97
+      max: -0.88
+      EMAAmt: 0.4
+      accumulator: -0.99022484
     swapInputPositions: 0
     swapInputMaps: 0
     bypassRemapping: 0

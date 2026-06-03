@@ -51,6 +51,7 @@ public class LivesManager : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     void OnValidate()
     {
         EditorApplication.delayCall += () =>
@@ -62,6 +63,21 @@ public class LivesManager : MonoBehaviour
                 RepositionInEditor();
         };
     }
+    
+    void RepositionInEditor()
+    {
+        if (this == null) return;
+
+        for (int i = transform.childCount - 1; i >= 0; i--)
+            DestroyImmediate(transform.GetChild(i).gameObject);
+
+        for (int i = 0; i < livesCount; i++)
+        {
+            var heart = (GameObject)PrefabUtility.InstantiatePrefab(heartPrefab, transform);
+            heart.transform.localPosition = new Vector3(0, i * yOffset, 0);
+        }
+    }
+#endif
 
     void RepositionDuringRuntime()
     {
@@ -76,20 +92,6 @@ public class LivesManager : MonoBehaviour
             var heart = Instantiate(heartPrefab, transform);
             heart.transform.localPosition = new Vector3(0, i * yOffset, 0);
             _hearts.Add(heart);
-        }
-    }
-
-    void RepositionInEditor()
-    {
-        if (this == null) return;
-
-        for (int i = transform.childCount - 1; i >= 0; i--)
-            DestroyImmediate(transform.GetChild(i).gameObject);
-
-        for (int i = 0; i < livesCount; i++)
-        {
-            var heart = (GameObject)PrefabUtility.InstantiatePrefab(heartPrefab, transform);
-            heart.transform.localPosition = new Vector3(0, i * yOffset, 0);
         }
     }
 }

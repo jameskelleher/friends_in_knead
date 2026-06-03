@@ -9,15 +9,15 @@ public static class SceneNav
     }
     public static void GoToTutorial() {
         StaticData.currentState = GameState.Tutorial;
-        SceneManager.LoadScene("3_Main");
+        SceneManager.LoadScene("2_Main");
     }
     public static void GoToGame(){
         StaticData.currentState = GameState.Game;
-        SceneManager.LoadScene("3_Main");
+        SceneManager.LoadScene("2_Main");
     }
     public static void GoToGameOver()
     {
         StaticData.currentState = GameState.GameOver;
-        SceneManager.LoadScene("4_End");
+        SceneManager.LoadScene("3_End");
     }
 }
